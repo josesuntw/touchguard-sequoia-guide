@@ -8,7 +8,7 @@
 - 若上游日後新增 License 或更新安裝方式，請以其內容為準。
 
 ### Upstream / 上游專案
-- thesyntaxinator/TouchGuard  
+- amanagr/TouchGuard  
   https://github.com/amanagr/TouchGuard
 
 （如上游 README 中另有「based on ...」的致謝，本 repo 尊重並保留其敘述；本 repo 僅補充現代 macOS 的權限與啟動方式。）
@@ -23,5 +23,5 @@ This repository is an **unofficial** guide + scripts bundle to help run TouchGua
 - If upstream adds a license or updates their installation instructions, follow upstream as the source of truth.
 
 ### Upstream
-- thesyntaxinator/TouchGuard  
+- amanagr/TouchGuard  
   https://github.com/amanagr/TouchGuard
