@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Logs
+*.log
+/tmp/TouchGuard.log
+/tmp/*.log
+
+# Do NOT commit upstream binaries / 不要提交上游執行檔
+TouchGuard
+TouchGuard.app
+*.dmg
+*.pkg
+*.zip
+
+# Optional local notes
+notes/
