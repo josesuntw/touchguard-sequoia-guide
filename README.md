@@ -118,6 +118,11 @@ launchctl kickstart -k gui/$(id -u)/org.amanagr.TouchGuard
 ```
 
 ---
+## Attribution / 致謝與來源
+
+See [`ATTRIBUTION.md`](./ATTRIBUTION.md) for upstream references and credits.  
+請參考 [`ATTRIBUTION.md`](./ATTRIBUTION.md)（上游連結與致謝）。
+
 
 ## Disclaimer / 免責聲明
 This is an unofficial compatibility guide. No upstream code/binary is redistributed here.
