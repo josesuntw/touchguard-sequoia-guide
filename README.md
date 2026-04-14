@@ -94,6 +94,9 @@ bash scripts/uninstall_launchagent.sh
 
 ## Troubleshooting / 排錯
 
+For a detailed troubleshooting guide, see [docs/troubleshooting-sequoia.md](./docs/troubleshooting-sequoia.md).  
+詳細故障排查指南請參考 [docs/troubleshooting-sequoia.md](./docs/troubleshooting-sequoia.md)。
+
 ### A) Running but no effect / 有跑但沒效果
 - Confirm both permissions are enabled (Accessibility + Input Monitoring).
 - Restart TouchGuard:

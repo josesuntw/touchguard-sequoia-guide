@@ -25,3 +25,6 @@ TouchGuard.app
 # Optional local notes
 notes/
 .DS_Store
+
+# Local task tracking
+TODO.md
