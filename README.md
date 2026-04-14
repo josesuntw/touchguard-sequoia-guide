@@ -2,6 +2,8 @@
 
 Unofficial guide for running TouchGuard on modern macOS (e.g. Sonoma/Sequoia) with Apple Silicon.
 
+**[Read the online guide →](https://josesuntw.github.io/touchguard-sequoia-guide/)**
+
 > This repository intentionally **does NOT include** the TouchGuard binary or upstream source code.
 > You will download TouchGuard from the upstream project and use the LaunchAgent + scripts here.
 
@@ -39,8 +41,10 @@ A LaunchAgent runs in the user session after login and can be granted permission
   Installs TouchGuard to `/usr/local/bin/TouchGuard`, installs LaunchAgent plist, loads it.
 - `scripts/uninstall_launchagent.sh`  
   Unloads/removes LaunchAgent and installed files.
-- `docs/`  
-  Permission notes and troubleshooting.
+- [`docs/permissions.md`](./docs/permissions.md)  
+  Quick-reference commands for permissions and log checks.
+- [`docs/troubleshooting-sequoia.md`](./docs/troubleshooting-sequoia.md)  
+  Detailed troubleshooting guide for macOS Sequoia.
 
 ---
 
