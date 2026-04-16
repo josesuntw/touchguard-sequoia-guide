@@ -11,6 +11,30 @@ Everything below is the exact fix. The LaunchAgent config file is also available
 
 ---
 
+## TL;DR (Quick Fix)
+
+1. Reset Accessibility permission:
+   ```bash
+   tccutil reset Accessibility com.josesun.touchguard
+   ```
+
+2. Re-add TouchGuard:
+   - System Settings → Privacy & Security → Accessibility
+   - Click `+` and select `/Applications/TouchGuard.app`
+
+3. Ensure LaunchAgent uses the exact binary path:
+   ```
+   /Applications/TouchGuard.app/Contents/MacOS/TouchGuard
+   ```
+
+4. Reload LaunchAgent:
+   ```bash
+   launchctl unload ~/Library/LaunchAgents/com.josesun.touchguard.plist
+   launchctl load ~/Library/LaunchAgents/com.josesun.touchguard.plist
+   ```
+
+---
+
 ## Why TouchGuard Appears to Install Successfully But Does Nothing
 
 The confusing part is that the installation flow looks normal. TouchGuard moves to `/Applications`, the Accessibility prompt appears, you click Allow — and then after a reboot, the cursor problem is back.
@@ -32,6 +56,17 @@ When TouchGuard launches through a LaunchAgent — which runs as your user accou
 This is why every "just re-grant the permission" answer you found on Reddit only works until the next reboot. It treats the symptom, not the mismatch.
 
 This behavior is particularly inconsistent for unsigned apps requesting accessibility permission on Sequoia — apps that haven't gone through Apple's notarization process are subject to stricter TCC enforcement after each login event.
+
+---
+
+## Diagnose Your Situation First
+
+| Symptom | Likely Cause |
+|---------|-------------|
+| No TouchGuard process running | LaunchAgent failed |
+| Process running but no effect | TCC mismatch |
+| Works until reboot | Permission reset |
+| Blocked on Apple Silicon | Gatekeeper |
 
 ---
 
