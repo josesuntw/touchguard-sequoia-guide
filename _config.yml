@@ -1,0 +1,6 @@
+title: TouchGuard Sequoia Guide
+baseurl: /touchguard-sequoia-guide
+url: https://josesuntw.github.io
+
+plugins:
+  - jekyll-redirect-from
