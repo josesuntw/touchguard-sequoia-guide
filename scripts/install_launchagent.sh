@@ -43,7 +43,14 @@ launchctl print "gui/$(id -u)/org.amanagr.TouchGuard" | egrep 'state =|pid =|las
 pgrep -ax TouchGuard || true
 
 echo "[5] Grant permissions (required)"
-echo "System Settings -> Privacy & Security:"
-echo "  - Accessibility: enable TouchGuard"
-echo "  - Input Monitoring: enable TouchGuard"
-echo "Log: /tmp/TouchGuard.log"
+if [[ "${LANG:-}" == zh_* ]]; then
+  echo "請至「系統設定 → 隱私權與安全性 → 輔助使用」手動啟用 TouchGuard"
+  echo "開啟後執行以下指令重啟服務："
+  echo "  launchctl kickstart -k gui/\$(id -u)/org.amanagr.TouchGuard"
+  echo "記錄檔：/tmp/TouchGuard.log"
+else
+  echo "System Settings -> Privacy & Security -> Accessibility: enable TouchGuard"
+  echo "After enabling, restart TouchGuard:"
+  echo "  launchctl kickstart -k gui/\$(id -u)/org.amanagr.TouchGuard"
+  echo "Log: /tmp/TouchGuard.log"
+fi

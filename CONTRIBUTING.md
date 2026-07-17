@@ -63,7 +63,6 @@ Before opening a PR, verify:
   ```
 - Permission steps are accurate:
   - Accessibility
-  - Input Monitoring
 
 ---
 
@@ -72,7 +71,7 @@ Before opening a PR, verify:
 ### What to include / 建議附上
 **English**
 - macOS version (e.g. 15.x) and chip (Apple Silicon / Intel)
-- Whether Accessibility & Input Monitoring are enabled
+- Whether Accessibility is enabled
 - Output (please redact personal info):
   ```bash
   launchctl print gui/$(id -u)/org.amanagr.TouchGuard | egrep 'state =|pid =|last exit code|runs ='
@@ -82,7 +81,7 @@ Before opening a PR, verify:
 
 **中文**
 - macOS 版本（例如 15.x）與晶片（Apple Silicon / Intel）
-- 是否已開啟「輔助使用」與「輸入監控」
+- 是否已開啟「輔助使用」
 - 指令輸出（請遮蔽個資）：
   ```bash
   launchctl print gui/$(id -u)/org.amanagr.TouchGuard | egrep 'state =|pid =|last exit code|runs ='

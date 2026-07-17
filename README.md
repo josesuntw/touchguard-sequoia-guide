@@ -13,7 +13,7 @@ Unofficial guide for running TouchGuard on modern macOS (e.g. Sonoma/Sequoia) wi
 
 ### 你會得到什麼？
 - 在 macOS Sequoia / Apple Silicon 上，改用 **LaunchAgent（使用者層）** 方式啟動 TouchGuard
-- 指令與腳本，讓 TouchGuard 有機會取得 **TCC 權限**（「輔助使用」＋「輸入監控」）
+- 指令與腳本，讓 TouchGuard 有機會取得 **TCC 權限**（「輔助使用」）
 
 ### 為什麼不用 LaunchDaemon？
 LaunchDaemon（system/root）常常拿不到使用者授權的 TCC 權限，導致「看起來有跑，但沒有作用」。  
@@ -25,7 +25,7 @@ LaunchDaemon（system/root）常常拿不到使用者授權的 TCC 權限，導�
 
 ### What you get
 - A **LaunchAgent (user session)** setup for TouchGuard on macOS Sonoma/Sequoia + Apple Silicon
-- Scripts/commands to work with macOS **TCC permissions** (Accessibility + Input Monitoring)
+- Scripts/commands to work with macOS **TCC permissions** (Accessibility)
 
 ### Why not LaunchDaemon?
 System/root LaunchDaemons often cannot receive user-granted TCC approvals, resulting in “running but no effect”.
@@ -69,13 +69,9 @@ bash scripts/install_launchagent.sh
 ```
 
 ### Step 3 — Grant permissions (REQUIRED) / 開啟權限（必做）
-System Settings → Privacy & Security:
-- Accessibility → enable TouchGuard
-- Input Monitoring → enable TouchGuard
+System Settings → Privacy & Security → Accessibility → enable TouchGuard
 
-系統設定 → 隱私權與安全性：
-- 輔助使用 → 開啟 TouchGuard
-- 輸入監控 → 開啟 TouchGuard
+系統設定 → 隱私權與安全性 → 輔助使用 → 開啟 TouchGuard
 
 After enabling permissions, restart TouchGuard:
 ```bash
@@ -109,7 +105,7 @@ For a detailed troubleshooting guide, see [docs/troubleshooting-sequoia.md](./do
 詳細故障排查指南請參考 [docs/troubleshooting-sequoia.md](./docs/troubleshooting-sequoia.md)。
 
 ### A) Running but no effect / 有跑但沒效果
-- Confirm both permissions are enabled (Accessibility + Input Monitoring).
+- Confirm Accessibility permission is enabled for TouchGuard.
 - Restart TouchGuard:
 ```bash
 launchctl kickstart -k gui/$(id -u)/org.amanagr.TouchGuard

@@ -12,4 +12,4 @@ sudo rm -f /usr/local/bin/TouchGuard
 rm -f /tmp/TouchGuard.log
 
 echo "[3] Done"
-echo "You may also remove TouchGuard from Accessibility/Input Monitoring lists manually if needed."
+echo "You may also remove TouchGuard from the Accessibility list manually if needed."
