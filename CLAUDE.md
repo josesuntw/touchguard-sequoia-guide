@@ -26,10 +26,10 @@
 
 | 異動類型 | 主動檢查項目 |
 |---------|------------|
-| `req-*.md`、`TODO.md` 有變動 | `spec-github.md`、`README.md` |
-| `.github/workflows/fetch.yml` | `spec-github.md` |
-| `scripts/*.py`、`sources/*.py` | `spec-github.md`（程式碼快照） |
-| `config.yml` | `spec-github.md`、`README.md` |
+| `docs/*.md` 有變動 | `README.md` 中的連結與說明是否仍符合 |
+| `scripts/*.sh` 有變動 | `README.md`（安裝/移除步驟）、`docs/permissions.md`（指令） |
+| `launchd/*.plist`（Label 或路徑）有變動 | `docs/troubleshooting-sequoia.md`（bundle ID / plist 路徑指令）、`README.md` |
+| `CONTRIBUTING.md` 有變動 | `README.md`（如有連結） |
 
 ## 常用指令
 

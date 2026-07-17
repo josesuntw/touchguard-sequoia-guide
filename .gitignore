@@ -26,6 +26,9 @@ TouchGuard.app
 notes/
 .DS_Store
 
+# Claude Code workspace config
+.claude/
+
 # Local task tracking
 TODO.md
 _dev/

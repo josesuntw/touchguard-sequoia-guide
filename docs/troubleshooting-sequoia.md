@@ -15,7 +15,7 @@ Everything below is the exact fix. The LaunchAgent config file is also available
 
 1. Reset Accessibility permission:
    ```bash
-   tccutil reset Accessibility com.josesun.touchguard
+   tccutil reset Accessibility org.amanagr.TouchGuard
    ```
 
 2. Re-add TouchGuard:
@@ -29,8 +29,8 @@ Everything below is the exact fix. The LaunchAgent config file is also available
 
 4. Reload LaunchAgent:
    ```bash
-   launchctl unload ~/Library/LaunchAgents/com.josesun.touchguard.plist
-   launchctl load ~/Library/LaunchAgents/com.josesun.touchguard.plist
+   launchctl unload ~/Library/LaunchAgents/org.amanagr.TouchGuard.plist
+   launchctl load ~/Library/LaunchAgents/org.amanagr.TouchGuard.plist
    ```
 
 ---
@@ -95,7 +95,7 @@ launchctl list | grep -i touchguard
 
 **Expected output when loaded correctly:**
 ```
-1847    0    com.josesun.touchguard
+1847    0    org.amanagr.TouchGuard
 ```
 
 If the first column shows `-` instead of a PID, the process is not running. If the second column shows a non-zero number (like `1` or `256`), the process launched but exited with an error.
@@ -114,7 +114,7 @@ The permission dialog behavior changed in Sequoia. Clicking Allow in the pop-up 
 After adding it, do not reboot yet. First, run this command to confirm the grant is recorded in TCC:
 
 ```bash
-tccutil reset Accessibility com.josesun.touchguard 2>/dev/null; echo "Reset complete"
+tccutil reset Accessibility org.amanagr.TouchGuard 2>/dev/null; echo "Reset complete"
 ```
 
 Then re-add TouchGuard in System Settings as described above. This forces a fresh TCC record rather than relying on a potentially stale one.
@@ -130,7 +130,7 @@ The most common reason permissions disappear on reboot is a mismatch between how
 Check your LaunchAgent plist path:
 
 ```bash
-cat ~/Library/LaunchAgents/com.josesun.touchguard.plist
+cat ~/Library/LaunchAgents/org.amanagr.TouchGuard.plist
 ```
 
 The `ProgramArguments` key should point to the exact binary, not a wrapper or symlink:
@@ -147,12 +147,12 @@ If the path shows anything else (a symlink in `/usr/local/bin`, a shell wrapper,
 Also verify the plist is in the correct location and owned by your user:
 
 ```bash
-ls -la ~/Library/LaunchAgents/com.josesun.touchguard.plist
+ls -la ~/Library/LaunchAgents/org.amanagr.TouchGuard.plist
 ```
 
 **Expected output:**
 ```
--rw-r--r--  1 yourname  staff  412 Apr 10 09:22 /Users/yourname/Library/LaunchAgents/com.josesun.touchguard.plist
+-rw-r--r--  1 yourname  staff  412 Apr 10 09:22 /Users/yourname/Library/LaunchAgents/org.amanagr.TouchGuard.plist
 ```
 
 If the owner is `root`, the LaunchAgent will not load correctly for your user session.
@@ -166,8 +166,8 @@ If the owner is `root`, the LaunchAgent will not load correctly for your user se
 Once you have verified the plist path and re-granted the permission correctly, reload the LaunchAgent so you don't have to reboot to test:
 
 ```bash
-launchctl unload ~/Library/LaunchAgents/com.josesun.touchguard.plist
-launchctl load ~/Library/LaunchAgents/com.josesun.touchguard.plist
+launchctl unload ~/Library/LaunchAgents/org.amanagr.TouchGuard.plist
+launchctl load ~/Library/LaunchAgents/org.amanagr.TouchGuard.plist
 ```
 
 Then confirm it loaded:
@@ -181,7 +181,7 @@ You should now see a PID in the first column and `0` in the second.
 After a macOS update, Sequoia sometimes resets the TCC database for third-party Accessibility grants. If TouchGuard stops working again after an OS update, the fastest recovery is:
 
 ```bash
-tccutil reset Accessibility com.josesun.touchguard
+tccutil reset Accessibility org.amanagr.TouchGuard
 ```
 
 Then re-add it in System Settings. Takes about 30 seconds.
@@ -227,7 +227,7 @@ In the blocked case, run the `xattr` command above, then repeat the TCC reset an
 
 **Q: Why does TouchGuard stop working after a macOS update?**
 
-macOS updates can reset the TCC database entries for third-party Accessibility grants. After any update, open System Settings → Privacy & Security → Accessibility and verify TouchGuard is still listed and enabled. If it is missing, re-add it. If it is listed but not working, run `tccutil reset Accessibility com.josesun.touchguard` and re-grant.
+macOS updates can reset the TCC database entries for third-party Accessibility grants. After any update, open System Settings → Privacy & Security → Accessibility and verify TouchGuard is still listed and enabled. If it is missing, re-add it. If it is listed but not working, run `tccutil reset Accessibility org.amanagr.TouchGuard` and re-grant.
 
 **Q: How do I grant accessibility permission to an unsigned app on macOS Sequoia?**
 
