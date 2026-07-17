@@ -5,7 +5,7 @@ Unofficial guide for running TouchGuard on modern macOS (e.g. Sonoma/Sequoia) wi
 **[Read the online guide →](https://josesuntw.github.io/touchguard-sequoia-guide/)**
 
 > This repository intentionally **does NOT include** the TouchGuard binary or upstream source code.
-> You will download TouchGuard from the upstream project and use the LaunchAgent + scripts here.
+> The installer script downloads the binary directly from upstream at install time.
 
 ---
 
@@ -50,10 +50,17 @@ A LaunchAgent runs in the user session after login and can be granted permission
 
 ## Install / 安裝（LaunchAgent）
 
-### Step 1 — Place TouchGuard binary / 放置 TouchGuard 執行檔
-Put the upstream `TouchGuard` executable in the repository root (same level as `scripts/` and `launchd/`).
+### Step 1 — TouchGuard binary (auto-download) / 執行檔（腳本自動下載）
+The installer script automatically downloads the `TouchGuard` binary from the upstream project if it is not already present in the repository root.
 
-將上游專案提供的 `TouchGuard` 執行檔放到本 repo 根目錄（和 `scripts/`、`launchd/` 同一層）。
+**Manual fallback / 手動備援：** If the download fails, place the upstream `TouchGuard` executable in the repository root manually:
+```bash
+curl -L https://github.com/amanagr/TouchGuard/raw/master/TouchGuard -o ./TouchGuard
+```
+
+---
+
+安裝腳本在根目錄找不到 `TouchGuard` 執行檔時，會自動從上游下載。若下載失敗，請手動執行上方指令。
 
 ### Step 2 — Run installer / 執行安裝腳本
 ```bash

@@ -1,11 +1,7 @@
 <!-- workspace-schema: v1 -->
-# [專案名稱]
+# TouchGuard-Sequoia-Guide
 
 ## 專案說明
-
-> **文件分工**：
-> - `CLAUDE.md`（本文件）→ **使用說明**：如何操作 workspace 產出成果
-> - `_dev/DEV.md` → **開發說明**：skill/agent 如何建立、同步、打包（不隨 workspace 交付）
 
 [一句話描述這個專案的用途]
 

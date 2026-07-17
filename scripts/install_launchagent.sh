@@ -12,9 +12,15 @@ PLIST_DST="$HOME/Library/LaunchAgents/org.amanagr.TouchGuard.plist"
 
 echo "[1] Put TouchGuard binary to $BIN_DST"
 if [[ ! -f "$BIN_SRC" ]]; then
-  echo "ERROR: TouchGuard binary not found at: $BIN_SRC"
-  echo "Download TouchGuard from the original repository and place it next to this script."
-  exit 1
+  echo "TouchGuard binary not found at $BIN_SRC — downloading from upstream..."
+  UPSTREAM_URL="https://github.com/amanagr/TouchGuard/raw/master/TouchGuard"
+  if curl -fL --progress-bar -o "$BIN_SRC" "$UPSTREAM_URL"; then
+    echo "Download OK"
+  else
+    echo "ERROR: Download failed. Please download manually:"
+    echo "  curl -L $UPSTREAM_URL -o ./TouchGuard"
+    exit 1
+  fi
 fi
 
 chmod +x "$BIN_SRC"
